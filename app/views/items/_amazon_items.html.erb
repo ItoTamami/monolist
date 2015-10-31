@@ -4,9 +4,8 @@
       <div class="item-box">
         <div class="image">
           <div class="img-wrap">
-            <%= item %>
             <% unless item.get('LargeImage/URL') == nil %>
-              <img src="<%= item.get('LargeImage/URL') %>" , alt="<%= item.get('ItemAttributes/Title') %>" >
+              <%= image_tag(item.get('LargeImage/URL') , alt: item.get('ItemAttributes/Title')) %>
             <% else %>
               <%= image_tag("no-image.png" , alt: item.get('ItemAttributes/Title')) %>
             <% end %>
