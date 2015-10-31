@@ -4,7 +4,7 @@
       <div class="item-box">
         <div class="image">
           <div class="img-wrap">
-            <% binding.pry %>
+            <%= item %>
             <% unless item.get('LargeImage/URL') == nil %>
               <img src="<%= item.get('LargeImage/URL') %>" , alt="<%= item.get('ItemAttributes/Title') %>" >
             <% else %>
