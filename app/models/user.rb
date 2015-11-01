@@ -14,7 +14,13 @@ class User < ActiveRecord::Base
 
   has_many :ownerships , foreign_key: "user_id", dependent: :destroy
   has_many :items ,through: :ownerships
+  #belows add L8.6.6
+  has_many :wants, class_name: "Want", foreign_key: "user_id", dependent: :destroy
+  has_many :want_items , through: :wants, source: :item
 
+  has_many :haves, class_name: "Have", foreign_key: "user_id", dependent: :destroy
+  has_many :have_items , through: :haves, source: :item
+  #above lines add L8.6.6
 
   # 他のユーザーをフォローする
   def follow(other_user)
