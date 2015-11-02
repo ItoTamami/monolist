@@ -35,22 +35,28 @@ class User < ActiveRecord::Base
     following_users.include?(other_user)
   end
 
-  ## TODO 実装
+  ## TODO 実装 #lesson8.6.8 Implementation want,have method
   def have(item)
+    haves.create(item_id: item.id)
   end
-
+ 
   def unhave(item)
+    haves.find_by(item_id: item.id).destroy
   end
 
   def have?(item)
+    haves.include?(item)
   end
 
   def want(item)
+    wants.create(item_id: item.id)
   end
 
   def unwant(item)
+    wants.find_by(item_id:item.id).destroy
   end
 
   def want?(item)
+    wants.include?(item)
   end
 end
