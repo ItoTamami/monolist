@@ -1,3 +1,8 @@
+<% content_for:head do %>
+  <title><%= user.name %> - Monolist</title>
+  <meta name="description" content="<%= user.name %>さんのプロフィールです。欲しいモノ、持っているモノを表示しています。">
+<% end %>
+
 <div class="user-profile">
   <div class="icon">
     <%= gravatar_for user, size: 100 %>
