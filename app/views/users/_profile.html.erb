@@ -10,25 +10,28 @@
       <li>
         <div class="status-label">FOLLOWING</div>
         <div class="status-value">
-          <%= user.following_users.count %>
+          <%= user.following_users.count if logged_in? %>
         </div>
       </li>
       <li>
         <div class="status-label">FOLLOWERS</div>
         <div id="followers" class="status-value">
-          <%= user.followed_users.count %>
+          <%= user.followed_users.count if logged_in? %>
         </div>
       </li>
       <li>
         <div class="status-label">WANT</div>
         <div id="want_count" class="status-value">
-          789
+         <!--  789 -->
+          <%= user.wants.count if logged_in? %>
         </div>
       </li>
       <li>
         <div class="status-label">HAVE</div>
         <div id="have_count" class="status-value">
-          123
+         <!-- 123 -->
+          <%= user.haves.count if logged_in? %>
+
         </div>
       </li>
     </ul>
