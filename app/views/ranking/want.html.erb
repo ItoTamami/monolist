@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="container-inner inner-default clearfix">
+  <h2 class="text-info">欲しいものランキング</h2>
+  <% if @want_ranking_items.length > 0 %>
+    <% @want_ranking_items.each{|key, value| %>
+    <% @want_item = Item.find(key) %>
+      <div class="item-box">
+        <h3><%= @want_ranking_items.select { |k, v| v > value }.count + 1 %>位 (<%= value %>ポイント)</h3>
+        <div class="image">
+          <div class="img-wrap">
+            <% if @want_item.large_image.present? %>
+              <%= image_tag(@want_item.large_image , alt: @want_item.title) %>
+            <% else %>
+              <%= image_tag("no-image.png" , alt: @want_item.title) %>
+            <% end %>
+          </div>
+        </div>
+        <div class="detail">
+          <p class="title">
+            <%= @want_item.title %>
+          </p>
+        </div>
+        <%= render 'items/action' , item: @want_item if logged_in? %>
+      </div>
+    <% } %>
+  <% else %>
+    <p>Wantされたアイテムがありません</p>
+  <% end %>
+  </div>
+</div>
