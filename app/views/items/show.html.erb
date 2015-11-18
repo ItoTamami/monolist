@@ -8,7 +8,11 @@
       <div class="image">
         <div class="img-wrap">
           <% #TODO 商品イメージ %>
-          <%= image_tag(@item.large_image , alt: @item.title) %>
+           <% if @have_item.large_image.present? %>
+             <%= image_tag(@have_item.large_image , alt: @have_item.title) %>
+           <% else %>
+             <%= image_tag("no-image.png" , alt: @have_item.title) %>
+           <% end %>
         </div>
       </div>
       <div class="title">
@@ -45,7 +49,7 @@
         </div>
       </div>
       <div class="text-center">
-	 <%= link_to(image_tag("amazon-button.png", alt: "Amazon詳細ページへ"), "http://www.amazon.co.jp/dp/#{@item.asin}/") %>
+	 <%= link_to(image_tag("amazon-button.png", alt: "Amazon詳細ページへ"), "#{@item.detail_page_url }/") %>
     </div>
   </div>
 </div>

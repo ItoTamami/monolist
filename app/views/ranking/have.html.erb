@@ -3,10 +3,7 @@
   <h2 class="text-info">持っているものランキング</h2>
   <% if @have_ranking_items.length > 0 %>
     <% @have_ranking_items.each{|key, value| %>
-    <!-- below 2 lines are for debug -->
-    <% puts "key" %>
-    <% p key %>
-    <!-- above 2 lines are for debug -->
+
     <% @have_item = Item.find(key) %>
       <div class="item-box">
         <h3><%= @have_ranking_items.select { |k, v| v > value }.count + 1 %>位 (<%= value %>ポイント)</h3>
