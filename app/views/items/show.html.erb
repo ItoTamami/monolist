@@ -8,10 +8,10 @@
       <div class="image">
         <div class="img-wrap">
           <% #TODO 商品イメージ %>
-           <% if @have_item.large_image.present? %>
-             <%= image_tag(@have_item.large_image , alt: @have_item.title) %>
+           <% if @item.large_image.present? %>
+             <%= image_tag(@item.large_image , alt: @item.title) %>
            <% else %>
-             <%= image_tag("no-image.png" , alt: @have_item.title) %>
+             <%= image_tag("no-image.png" , alt: @item.title) %>
            <% end %>
         </div>
       </div>
